@@ -1,0 +1,24 @@
+<div class="header">
+    <a routerLink="/">
+        <h2><span>GTS Cars</span></h2>
+    </a>
+
+    <div class="main">
+        <ul>
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/cars">Catalog</a></li>
+            <ng-container *ngIf="isLogged">
+                <li><a routerLink="/add">Add Car</a></li>
+                <li><a href="/profile">Profile</a></li>
+            </ng-container>
+            <ng-container *ngIf="!isLogged">
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/register">Register</a></li>
+            </ng-container>
+            <ng-container *ngIf="isLogged">
+                <li><a (click)="logout()">Logout</a></li>
+            </ng-container>
+        </ul>
+    </div>
+   
+</div>

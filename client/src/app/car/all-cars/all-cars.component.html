@@ -1,0 +1,15 @@
+<div class="container">
+     <section *ngIf="cars">
+        <ng-container *ngFor="let car of cars">
+            <article>
+                <div class="image">
+                    <img src={{car.imageUrl}} alt="no-img">
+                </div>
+                <div class="info">
+                    <h1>{{car.make}} {{car.model}}<br>Price: {{car.price}}$</h1>
+                    <button [routerLink]="['/cars', car._id]">Details</button>
+                </div>
+            </article>
+        </ng-container>
+    </section>
+</div>

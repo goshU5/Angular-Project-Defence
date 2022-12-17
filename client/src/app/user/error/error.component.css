@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    background-image:url(https://freefrontend.com/assets/img/html-css-404-page-templates/404-not-found.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: calc(100vh - 5.4rem);
+}

@@ -1,0 +1,16 @@
+<div class="container">
+       <h2>Chase your dreams!</h2>
+       <div class="container buttons">
+           <a routerLink="/cars">
+               <button>Catalog</button>
+            </a>
+            <ng-container *ngIf="!isLogged">
+                <a routerLink="/login">
+                   <button>Login</button>
+                </a>
+                <a routerLink="/register">
+                   <button>Register</button>
+                </a>
+            </ng-container>
+       </div>
+   </div>

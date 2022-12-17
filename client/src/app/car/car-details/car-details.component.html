@@ -1,0 +1,74 @@
+
+<div class="container">
+    <ng-container *ngIf="!inEditMode && car">
+        <article class="car">
+            <div class="image">
+                <img src={{car.imageUrl}} alt="no-img">
+            </div>
+            <div class="info">
+                <h1>{{car.make}}: <span>{{car.model}}</span></h1>
+                <hr>
+                <h3>Horsepower: <span>{{car.hp}}</span></h3>
+                <h3>Year: <span>{{car.year}}</span></h3>
+                <h3>Description: <span>{{car.description}}</span></h3>
+                <h3>Price: <span>{{car.price}}$</span></h3>
+                <h3>Owner: <span>{{car.owner.username}}</span></h3>
+                <div class="buttons">
+                    <button routerLink="/cars">Back</button>
+                    <ng-container *ngIf="isAuthor">
+                        <button (click)="inEditMode = true">Edit</button>
+                        <button (click)="delete()">Delete</button>
+                    </ng-container>
+                </div>
+                <p class="mainError" *ngIf="errors">{{errors}}</p>
+            </div>
+        </article>
+    </ng-container>
+    
+    <ng-container *ngIf="inEditMode">
+        <div class="form">
+            <form #form="ngForm" (ngSubmit)="editCar(form)">
+                <label>Make</label>
+                <input #make="ngModel" ngModel type="text" name="make" required minlength="3" [ngModel]="car?.make">
+                <ng-container *ngIf="make.touched">
+                    <p class="error" *ngIf="make.errors?.['required']">Make is required!</p>
+                    <p class="error" *ngIf="make.errors?.['minlength']">You should have at least 3 characters!</p>
+                </ng-container>
+                <label>Model</label>
+                <input #model="ngModel" ngModel type="text" name="model" required minlength="2" [ngModel]="car?.model">
+                <ng-container *ngIf="model.touched">
+                    <p class="error" *ngIf="model.errors?.['required']">Model is required!</p>
+                    <p class="error" *ngIf="model.errors?.['minlength']">You should have at last 2 characters!</p>
+                </ng-container>
+                <label>ImageUrl</label>
+                <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" required [ngModel]="car?.imageUrl">
+                <ng-container *ngIf="imageUrl.touched">
+                    <p class="error" *ngIf="imageUrl.errors?.['required']">ImageUrl is required!</p>
+                </ng-container>
+                <label>Year</label>
+                <input #year="ngModel" ngModel type="text" name="year" required min="1950" max="2022" [ngModel]="car?.year">
+                <ng-container *ngIf="year.touched">
+                    <p class="error" *ngIf="year.errors?.['required']">Year is required!</p>
+                    <p class="error" *ngIf="year.errors?.['min']">Car year should be newer than 1950's!</p>
+                    <p class="error" *ngIf="year.errors?.['max']">Car year cannot be in the future!</p>
+                </ng-container>
+                <label>Description</label>
+                <input #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="100" [ngModel]="car?.description">
+                <ng-container *ngIf="description.touched">
+                    <p class="error" *ngIf="description.errors?.['required']">Description is required!</p>
+                    <p class="error" *ngIf="description.errors?.['minlength']">Description should have at least 10 characters!</p>
+                    <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 100 characters!</p>
+                </ng-container>
+                <label>Price</label>
+                <input #price="ngModel" ngModel type="text" name="price" required min="500" [ngModel]="car?.price">
+                <ng-container *ngIf="price.touched">
+                    <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
+                    <p class="error" *ngIf="price.errors?.['min']">Car should be more expensive than 500$!</p>
+                    <p class="mainError" *ngIf="errors">{{errors}}</p>
+                </ng-container>
+
+                <button [disabled]="form.invalid" type="submit" id="edit_car">Edit Car</button>
+            </form>
+        </div>
+    </ng-container>
+</div>
