@@ -3,11 +3,11 @@ import { ICar } from 'src/app/shared/interfaces/car';
 import { CarService } from '../car.service';
 
 @Component({
-  selector: 'app-all-cars',
-  templateUrl: './all-cars.component.html',
-  styleUrls: ['./all-cars.component.css']
+  selector: 'app-catalog',
+  templateUrl: './catalog.component.html',
+  styleUrls: ['./catalog.component.css']
 })
-export class AllCarsComponent {
+export class CatalogComponent {
   cars: ICar[] | undefined
   isEmpty: boolean = false;
   constructor(private carService: CarService){

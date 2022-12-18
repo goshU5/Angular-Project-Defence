@@ -1,20 +1,20 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllCarsComponent } from './all-cars.component';
+import { CatalogComponent } from './catalog.component';
 
 describe('AllCarsComponent', () => {
-  let component: AllCarsComponent;
-  let fixture: ComponentFixture<AllCarsComponent>;
+  let component: CatalogComponent;
+  let fixture: ComponentFixture<CatalogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AllCarsComponent ],
+      declarations: [ CatalogComponent ],
       imports: [HttpClientModule]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AllCarsComponent);
+    fixture = TestBed.createComponent(CatalogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

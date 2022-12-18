@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "../core/guards/auth.guard";
 import { ErrorComponent } from "../user/error/error.component";
 import { AddCarComponent } from "./add-car/add-car.component";
-import { AllCarsComponent } from "./all-cars/all-cars.component";
+import { CatalogComponent } from "./catalog/catalog.component";
 import { CarDetailsComponent } from "./car-details/car-details.component";
 
 const routes: Routes = [
@@ -21,7 +21,7 @@ const routes: Routes = [
             {
                 path: '',
                 pathMatch: 'full',
-                component: AllCarsComponent,
+                component: CatalogComponent,
             },
             {
                 path: ':id',

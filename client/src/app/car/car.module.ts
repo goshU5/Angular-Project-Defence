@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AddCarComponent } from './add-car/add-car.component';
 import { CarRoutingModule } from './car-routing.module'
-import { AllCarsComponent } from './all-cars/all-cars.component';
+import { CatalogComponent } from './catalog/catalog.component';
 import { FormsModule } from '@angular/forms';
 import { CarDetailsComponent } from './car-details/car-details.component';
 
@@ -12,7 +12,7 @@ import { CarDetailsComponent } from './car-details/car-details.component';
 @NgModule({
   declarations: [
     AddCarComponent,
-    AllCarsComponent,
+    CatalogComponent,
     CarDetailsComponent
   ],
   imports: [
