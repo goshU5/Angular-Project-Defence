@@ -4,6 +4,7 @@ The car catalog project is an online platform that allows customers to browse a 
 Key Features
 •	A catalog of available car models with detailed information on features, pricing, and specifications.
 •	A user-friendly interface that makes it easy for customers to navigate through the catalog.
+
 Project Architecture
 The car catalog project is built using a combination of Angular for the front-end, Express for server-side rendering, and MongoDB for the database. The architecture of the project is structured as follows:
 
